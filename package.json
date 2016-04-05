@@ -1,0 +1,34 @@
+{
+  "name": "sefind",
+  "version": "0.0.0",
+  "description": "find",
+  "main": "find.coffee",
+  "scripts": {
+    "patch": "npm-run-all gitcommit vpatch pub",
+    "minor": "npm-run-all gitcommit vminor pub",
+    "major": "npm-run-all gitcommit vmajor pub",
+    "gitcommit": "git add --all; git commit -am 'modified'",
+    "vpatch": "npm version patch",
+    "vminor": "npm version minor",
+    "vmajor": "npm version major",
+    "postversion": "git push",
+    "prepub": "echo 已經git push 準備 publish...",
+    "pub": "npm publish ../sefind",
+    "prepublish": "echo 現在發佈...",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emptist/sefind.git"
+  },
+  "author": "Jigme Ko <jigme1968@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emptist/sefind/issues"
+  },
+  "homepage": "https://github.com/emptist/sefind#readme",
+  "dependencies": {
+    "say": "*",
+    "sedata": "*"
+  }
+}
