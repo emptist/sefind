@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/emptist/sefind#readme",
   "dependencies": {
-    "say": "*",
+    "async": "*",
     "sedata": "*"
   }
 }
