@@ -1,6 +1,6 @@
 {
   "name": "sefind",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "find",
   "main": "find.coffee",
   "scripts": {
