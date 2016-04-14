@@ -6,18 +6,17 @@
 ###
 
 {hists} = require 'sedata'
-module.exports = (symbols, Pool, PeakTrough, callback)->
-  結果 = []
+module.exports = (symbols, Pool, PeakTrough, level, func)->
   檢測 = (symbol, 回執)->
     hists {symbol:symbol, type:'day', len:0}, (err,arr)->
       if err?
         throw err
       pool = new Pool({回幅:0.015})
-      pool.計峰篩選 = (燭)->燭.入選計峰 = 燭.low > 燭.動地均
+      pool.計峰篩選 = func #(燭)->燭.入選計峰 = 燭.low > 燭.動地均
 
       pt = new PeakTrough('動低幅')
       pt.計峰基數 = 0
-      pt.計峰目標 = 4
+      pt.計峰目標 = level
 
       pool.序列(arr)
       pt.序列(pool.燭線)
@@ -27,9 +26,7 @@ module.exports = (symbols, Pool, PeakTrough, callback)->
 
   for symbol in symbols
     檢測 symbol, (err, obj)->
-      結果.push obj unless err?
       console.log obj
 
-  callback 結果
 
   #symbols = ['159915','150153']
