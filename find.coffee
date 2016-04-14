@@ -6,7 +6,7 @@
 ###
 
 {hists} = require 'sedata'
-module.exports = (symbols, Pool, PeakTrough, level, func)->
+module.exports = (symbols, Pool, PeakTrough, levels, func)->
   檢測 = (symbol, 回執)->
     hists {symbol:symbol, type:'day', len:0}, (err,arr)->
       if err?
@@ -16,7 +16,7 @@ module.exports = (symbols, Pool, PeakTrough, level, func)->
 
       pt = new PeakTrough('動低幅')
       pt.計峰基數 = 0
-      pt.計峰目標 = level
+      pt.計峰目標 = levels
 
       pool.序列(arr)
       pt.序列(pool.燭線)
