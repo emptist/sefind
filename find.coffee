@@ -11,7 +11,7 @@ module.exports = (symbols, Pool, PeakTrough, levels, func)->
     hists {symbol:symbol, type:'day', len:0}, (err,arr)->
       if err?
         throw err
-      pool = new Pool({回幅:{陰:0.18,陽:0.015}})
+      pool = new Pool({回幅:{陰:0.15,陽:0.02}})
       pool.計峰篩選 = func #(燭)->燭.入選計峰 = 燭.low > 燭.動地均
 
       pt = new PeakTrough('動低幅')
