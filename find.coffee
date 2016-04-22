@@ -6,7 +6,7 @@
 ###
 
 {hists} = require 'sedata'
-module.exports = (symbols, Pool, PeakTrough, levels, func)->
+check = (symbols, Pool, PeakTrough, levels, func)->
   檢測 = (symbol, 回執)->
     hists {symbol:symbol, type:'day', len:0}, (err,arr)->
       if err?
@@ -29,4 +29,7 @@ module.exports = (symbols, Pool, PeakTrough, levels, func)->
       console.log obj
 
 
-  #symbols = ['159915','150153']
+module.exports =
+  check: check
+
+#symbols = ['159915','150153']
